@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: Dodmond
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html lang="">
+<head>
+<title>{{ request.user }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all"> -->
+<!-- <link href="static/css/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="static/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
+<link href="static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="static/css/custom-flexslider.css" rel="stylesheet" type="text/css" media="all">
+ -->
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/custom-flexslider.css' %}" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="fl_left">
+      <ul>
+        <li><i class="fa fa-phone"></i> +91 (0123) 456 7890</li>
+        <li><i class="fa fa-envelope-o"></i>shubhi0408@gmail.com</li>
+      </ul>
+    </div>
+    <div class="fl_right">
+      <ul>
+        <li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+        <!-- <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register as owner</a></li>
+        <li><a href="register.html">Register as visitor</a></li>
+ -->
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+        <!-- <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register as owner</a></li>
+        <li><a href="{% url 'register' %}">Register as visitor</a></li>
+ -->
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a href="{% url 'home' %}">Easy 2 Rent</a></h1>
+      <p>We provide the best</p>
+    </div>
+    <!-- <div id="quickinfo" class="fl_right">
+      <ul class="nospace inline">
+        <li><strong>Abhishek:</strong><br>
+          9637389501</li>
+      </ul>
+    </div> -->
+    <!-- ################################################################################################ -->
+  </header>
+  <nav id="mainav" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="clear">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li class="active"><a href="{% url 'home' %}">Contact Us</a></li>
+      <!-- <li><a href="#">P</a></li> -->
+      
+    </ul>
+    <!-- ################################################################################################ -->
+  </nav>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
+  <section id="breadcrumb" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+<!--     <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Lorem</a></li>
+      <li><a href="#">Ipsum</a></li>
+      <li><a href="#">Dolor</a></li>
+    </ul> -->
+    <!-- ################################################################################################ -->
+    <h6 class="heading">Welcome {{ request.user }}</h6>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="sidebar one_third first"> 
+      <!-- ################################################################################################ -->
+<!--       <h6>Lorem ipsum dolor</h6> -->
+      <!-- <nav class="sdb_holder"> -->
+        <!-- <ul> -->
+          <!-- <li><a href='#'>Add propery</a></li> -->
+         <!--  <li><a href="#">View All tenants</a></li>
+          <li><a href="#">Rent to get</a>
+          </li>
+          <li><a href="#"></a>
+            <ul>
+              <li><a href="#">Navigation - Level 2</a></li>
+              <li><a href="#">Navigation - Level 2</a>
+                <ul>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Navigation - Level 1</a></li>
+        </ul> -->
+      <!-- </nav> -->
+      <form action = "#" method = "post" >
+        {% csrf_token %}
+        <label class="sr-o" for="sort"><b>SORT BY:</b></label>
+       <!--  <input type='radio' name='sortBy' value='1'><label for="1"> By Distance</label>
+        --> <input type='radio' name='sortBy' value='2'><label>By Rating:</label>
+        <input type='radio' name='sortBy' value='3' checked="True"><label>By Price:</label><br>
+        <label class="sr-o" for="query"><b>Choose one of the following queries:</b></label>
+        <input type='radio' name='query' value='1'><label> More than x avg-rating</label>
+        <input type='radio' name='query' value='2'><label> Atleast x 5-star ratings</label>
+        <!-- <input type='radio' name='query' value='3'><label> Distance of vicinity </label>
+         --><input type='radio' name='query' value='4' checked="True"><label> Maximum rent</label><br>
+        <input type='text' name='val' placeholder="Enter value" required>
+        <br>
+        <input type='submit' class="btn" value='search'><br>
+      </form>
+        <br><br><br>
+      <div class="sdb_holder">
+        <h6>My Profile</h6>
+        <address>
+        <p>{{ curr_visitor.profile }}</p>
+        </address>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="content two_third"> 
+      <!-- ################################################################################################ -->
+      <h1>Properties</h1>
+    
+      {% for i in properties %}
+          <a href="{% url 'prop' i.id %}"> <b>Property</b>{{ i.id }}<br></a>
+          <b>Description: </b> {{ i.description }}<br> 
+          <b>Location: </b> {{ i.location }} <br>
+          <b>Price: </b> {{ i.price }}<br>
+          <b>Number of views: </b> {{ i.num_views }}<br><br><br>
+      {% endfor %}
+
+      <div class="pagination">
+        <!-- <span class="step-links"> -->
+        <div class="one_third" first>
+        </div>
+        <div class="one_third">
+            {% if properties.has_previous %}
+                <a href="?page={{ properties.previous_page_number }}" class="btn">previous</a>
+            {% endif %}
+
+            <!-- <span class="current"> -->
+                Page {{ properties.number }} of {{ properties.paginator.num_pages }}.
+            <!-- </span> -->
+
+            {% if properties.has_next %}
+                <a href="?page={{ properties.next_page_number }}" class="btn">next</a>
+            {% endif %}
+          </div>
+        <!-- </span> -->
+      </div>
+      <br><br><br><br><br>
+      <h1>My Rented Properties</h1>
+    
+      {% for i in myprop %}
+          <a href="{% url 'prop' i.id %}"> <b>Property</b>{{ i.id }}<br></a>
+          <b>Description: </b> {{ i.description }}<br> 
+          <b>Location: </b> {{ i.location }} <br>
+          <b>Price: </b> {{ i.price }}<br>
+          <b>Number of views: </b> {{ i.num_views }}<br><br><br>
+      {% endfor %}
+
+      <!-- <div class="pagination"> -->
+        <!-- <span class="step-links"> -->
+       <!--  <div class="one_third" first>
+        </div>
+        <div class="one_third">
+            {% if myprop.has_previous %}
+                <a href="?page={{ myprop.previous_page_number }}" class="btn">previous</a>
+            {% endif %}
+
+                Page {{ myprop.number }} of {{ myprop.paginator.num_pages }}.
+            
+            {% if myprop.has_next %}
+                <a href="?page={{ myprop.next_page_number }}" class="btn">next</a>
+            {% endif %}
+          </div>•••••••
+        --> <!-- </span> -->
+      <!-- </div> -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4 bgded overlay" style="background-image:url('images/demo/backgrounds/03.png');">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-50">
+      <h2 class="heading">Easy 2 Rent</h2>
+      <nav>
+        <ul class="nospace inline pushright uppercase">
+          <li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="{% url 'home' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Contact</a></li>
+          </ul>
+      </nav>
+    </div>
+</div>
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<!-- <script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.backtotop.js' %}"></script>
+<script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+ -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery.backtotop.js"></script>
+<script src="static/js/jquery.mobilemenu.js"></script>
+<script src="static/js/jquery.flexslider-min.js"></script>
+
+</body>
+</html>
